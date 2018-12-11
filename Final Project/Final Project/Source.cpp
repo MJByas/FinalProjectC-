@@ -7,7 +7,6 @@
 #include <iomanip>
 #include <string>
 #include <ctime>
-#include <Windows.h>
 
 using namespace std;
 
@@ -99,7 +98,6 @@ int main() {
 		<< "We need to rest here for the night" << endl
 		<< "# You two rest for the night to gein some energy" << endl
 		<< "# You awake to see a wandering gambler down the road" << endl << endl;
-	Sleep(1000);
 }
 
 void luck () {														// Random number generator with a seed of 0
