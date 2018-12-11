@@ -1,0 +1,4 @@
+﻿  Source.cpp
+c:\users\michael\documents\projects\final project\final project\source.cpp(25): warning C4101: 'choices': unreferenced local variable
+c:\users\michael\documents\projects\final project\final project\source.cpp(59): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Final Project.vcxproj -> C:\Users\Michael\Documents\Projects\Final Project\Debug\Final Project.exe
