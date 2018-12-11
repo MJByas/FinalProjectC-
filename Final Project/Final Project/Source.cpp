@@ -28,7 +28,7 @@ int main() {
 	cin >> name;
 	cout << "That's a strange name." << endl << endl;
 	Sleep(100);
-	do {
+	do {									// This is the code block for choosing your class
 		cout << "What is your specialy?" << endl
 			<< "1. Warrior" << endl
 			<< "2. Mage" << endl
