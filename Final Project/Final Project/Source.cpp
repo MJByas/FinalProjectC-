@@ -10,25 +10,29 @@
 
 using namespace std;
 
-struct stats {														// struct for class stats that will be needed
+struct Class{			//Struct for class stats and quotes
+	string SnkAtk;
+	string HOAtk;
 	int hp;
-	string abi;
-} Warrior, Mage, Thief;
+}Warrior, Mage, Thief;
 
 void luck (int& a, int& b);
 
 int main() {
-	struct stats;
+	struct Class;
 	string name;
 	int charClass;
-	int choices[40];
+	int guess;
+	int roll;
+	int choices[5];							// Array for choices made throughout the code
 
-	cout << "Hello wanderer! What is your name? " << endl;			// Introduction
+	cout << "Hello wanderer! What is your name?: " << endl;			// Introduction
 	cin >> name;
-	cout << "That's a strange name." << endl << endl;
-	Sleep(100);
-	do {									// This is the code block for choosing your class
-		cout << "What is your specialy?" << endl
+	cout << endl << "That's a strange name." << endl
+		<< "I am Ulfang. I am a warrior" << endl << endl;
+
+	do {								// This is the code block for choosing your class
+		cout << "What is your specialy?: " << endl
 			<< "1. Warrior" << endl
 			<< "2. Mage" << endl
 			<< "3. Thief" << endl;
@@ -69,21 +73,21 @@ int main() {
 			cout << Mage.HOAtk << endl
 				<< "# Ulfang takes out the orc attacking you from behind" << endl
 				<< "You need time to charge up your spells, mage." << endl << endl;
-			Mage.hp - 2;
+			(Mage.hp - 2);
 		}
 		else {
 			cout << Thief.HOAtk << endl
 				<< "# You get back up after hitting your head and stab the orc in" << endl
 				<< "# a weak spot with your dagger, thus killing him" << endl
 				<< "Nice bounce back thief." << endl << endl;
-			Thief.hp - 2;
+			(Thief.hp - 2);
 		}
 	case 2: 
 		if (charClass == 1) {
 			cout << Warrior.SnkAtk << endl
 				<< "# The orc charges you but you raise your sword just in time to kill him" << endl
 				<< "That was a close one, warrior." << endl << endl;
-			Warrior.hp - 3;
+			(Warrior.hp - 3);
 		}
 		else if (charClass == 2)
 			cout << Mage.SnkAtk << endl
@@ -137,15 +141,48 @@ int main() {
 			(Mage.hp / 2);
 		else
 			(Thief.hp / 2);
-
 	}
+	cout << "# The gambler runs off into the distance" << endl
+		<< "# You and Ulfang continue your journey until you reach the final quiz" << endl		//Quiz time!
+		<< "Wow! It is actuall a quiz, wanderer. " << endl << endl;
 	
+	cout << "Question 1: What is an array? " << endl														
+		<< "1. Series of elements of the same type" << endl
+		<< "2. group of data elementsof different types grouped together under one name" << endl;
+	cin >> choices[2];
+	if (choices[2] == 1)
+		cout << "You are correct! One more and you win!" << endl;
+	else
+		cout << "You are wrong! but this part is for learning!" << endl << endl;
+
+	cout << "Question 2: What is a function?" << endl
+		<< "1. Individual instructions for a program" << endl
+		<< "2. Chunk of code that is called inside the main function" << endl;
+	cin >> choices[3];
+	if (choices[3] == 1)
+		cout << "Wrong again! Were you paying attention in class?" << endl;
+	else
+		cout << "Correct! You're doing good!" << endl << endl;
+
+	cout << "FINAL QUESTION: Did you have fun in this adventure?" << endl
+		<< "1. YES!" << endl
+		<< "2. NO!" << endl << endl;
+	cin >> choices[4];
+	switch (choices[4]) {
+	case 1:
+		cout << "I knew you would!" << endl << endl;
+	case 2:
+		cout << "Well that is rude. I thought it was pretty good!" << endl << endl;
+	}
+	cout << "YOU FINISHED THE ADVENTURE!!" << endl << endl;
+	cout << "                    FIN                  " << endl << endl;
 }
 
-void luck (int& a, int& b) {														 // Random number generator with a seed of 0
+
+void luck (int& a, int& b) {				 // Random number generator with a seed of 0
 	srand(unsigned(0));
 	b = rand() % 10 + 1;
-	do {															// Loop that resets the guess until you choose a desired value
+	do {						// Loop that resets the guess until you choose a desired value
 		cout << "Guess a number between 1 to 10 :";
 		cin >> a;
 		if (a <= 0 || a > 10)
@@ -157,5 +194,5 @@ void luck (int& a, int& b) {														 // Random number generator with a see
 		<< "I'll restore your health. " << endl;
 	else
 		cout << "I knew you weren't good enough." << endl
-		<< "Say goodbye to your half your health" << endl;
+		<< "Say goodbye to your half your health!" << endl;
 }
