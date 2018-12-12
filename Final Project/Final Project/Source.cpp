@@ -15,7 +15,7 @@ struct stats {														// struct for class stats that will be needed
 	string abi;
 } Warrior, Mage, Thief;
 
-void luck ();
+void luck (int& a, int& b);
 
 int main() {
 	struct stats;
@@ -98,25 +98,64 @@ int main() {
 		<< "We need to rest here for the night" << endl
 		<< "# You two rest for the night to gein some energy" << endl
 		<< "# You awake to see a wandering gambler down the road" << endl << endl;
+	cout << "Hello! My name is Tonpa." << endl
+		<< "I see you're injured and I would like to make a wager." << endl << endl;
+	cout << "What's in it for me and this wanderer?" << endl << endl;
+	cout << "I will heal any wounds to both of you. The catch is that " << endl
+		<< "if you lose I take half your health." << endl << endl;
+	cout << "What do you say wanderer? Take on his bet?: " << endl;
+	do {
+		cout << "1. Yes" << endl
+			<< "2. No" << endl << endl;
+		cin >> choices[1];
+		if (choices[1] <= 0 || choices[1] > 2)
+			cout << "YES OR NO?" << endl;
+	} while (choices[1] <= 0 || choices[1] > 2);
+	luck(guess, roll);
+	switch (choices[1]){
+	case 1:	
+		if (guess == roll) {
+			if (charClass == 1)
+				Warrior.hp = 10;
+			else if (charClass == 2)
+				Mage.hp = 6;
+			else
+				Thief.hp = 8;
+			}
+		else {
+			if (charClass == 1)
+				(Warrior.hp / 2);
+			else if (charClass == 2)
+				(Mage.hp / 2);
+			else
+				(Thief.hp / 2);
+		}
+	case 2:
+		if (charClass == 1)
+			(Warrior.hp / 2);
+		else if (charClass == 2)
+			(Mage.hp / 2);
+		else
+			(Thief.hp / 2);
+
+	}
+	
 }
 
-void luck () {														// Random number generator with a seed of 0
-	srand(time(0));
-	int roll;
-	int guess;
-	roll = rand() % 10 + 1;
+void luck (int& a, int& b) {														 // Random number generator with a seed of 0
+	srand(unsigned(0));
+	b = rand() % 10 + 1;
 	do {															// Loop that resets the guess until you choose a desired value
 		cout << "Guess a number between 1 to 10 :";
-		cin >> guess;
-		if (guess <= 0 || guess > 10)
+		cin >> a;
+		if (a <= 0 || a > 10)
 			cout << "I said between 1 and 10!" << endl;
-	} while (guess <= 0 || guess > 10);
+	} while (a <= 0 || a > 10);
 
-	if (guess == roll)
-		cout << "I guess you got lucky today, kid." << endl
-		<< "I'll let you pass." << endl;
+	if (a == b)
+		cout << "I guess you got lucky today." << endl
+		<< "I'll restore your health. " << endl;
 	else
 		cout << "I knew you weren't good enough." << endl
-		<< "Find another way across." << endl;
-	
+		<< "Say goodbye to your half your health" << endl;
 }
