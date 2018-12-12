@@ -30,7 +30,6 @@ int main() {
 	cin >> name;
 	cout << endl << "That's a strange name." << endl
 		<< "I am Ulfang. I am a warrior" << endl << endl;
-
 	do {								// This is the code block for choosing your class
 		cout << "What is your specialy?: " << endl
 			<< "1. Warrior" << endl
@@ -82,7 +81,8 @@ int main() {
 				<< "Nice bounce back thief." << endl << endl;
 			(Thief.hp - 2);
 		}
-	case 2: 
+		break;
+	case 2:
 		if (charClass == 1) {
 			cout << Warrior.SnkAtk << endl
 				<< "# The orc charges you but you raise your sword just in time to kill him" << endl
@@ -93,6 +93,7 @@ int main() {
 			cout << Mage.SnkAtk << endl
 			<< "# The fireball is so strong it kills both orcs" << endl
 			<< "God I love seeing fireballs exlpode!" << endl << endl;
+
 		else
 			cout << Thief.SnkAtk << endl
 			<< "# Ulfang takes out his orc in a similar fashion" << endl
